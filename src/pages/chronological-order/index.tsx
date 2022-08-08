@@ -1,35 +1,49 @@
-import React from "react";
+import React, { useEffect } from "react";
 import type { NextPage } from "next";
-import { Stack, Box, Heading, Image } from "@chakra-ui/react";
-import { Section } from "src/components/Section";
+import { Box, Image, Text } from "@chakra-ui/react";
 
 const ChronologicalOrder: NextPage = () => {
-  return (
-    // <Box
-    //   minHeight="100vh"
-    //   width="100vw"
-    //   bg="gray.800"
-    //   bgGradient="linear(to-bl, rgba(26, 32, 44, 0.2), rgba(26, 32, 44, 0.8)), url('/phantom-menace.jpg')"
-    //   bgPosition="top"
-    //   bgRepeat="no-repeat"
-    //   bgSize="contain"
-    // >
-    //   <Section>
-    //     <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-    //   </Section>
-    // </Box>
+  const contentContainerRef = React.useRef<HTMLDivElement>(null);
+  const [opacity, setOpacity] = React.useState(1);
 
-    <Box minHeight="100vh" bg="gray.800" position="relative">
-      <Image w="full" src="/phantom-menace.jpg" alt="Todo" />
-      <Section zIndex={1} position="fixed" top="0" left="0">
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-        <Image h="52" src="/phantom-menace-title.png" alt="Todo" />
-      </Section>
+  const handleScroll = () => {
+    const pageHeight = window.innerHeight;
+    const contentHeight = contentContainerRef.current?.clientHeight;
+    const scrollPosition = window.scrollY;
+
+    const rawOpacity = 1 - scrollPosition / (contentHeight! - pageHeight);
+
+    if (rawOpacity < 0.2) {
+      setOpacity(0.2);
+    } else {
+      setOpacity(rawOpacity);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  });
+
+  return (
+    <Box minHeight="100vh" position="relative">
+      <Box position="fixed" opacity={opacity} zIndex="0">
+        <Image w="full" src="/phantom-menace.jpg" alt="Todo" />
+        <Box
+          position="absolute"
+          top="0"
+          left="0"
+          right="0"
+          bottom="0"
+          bgGradient="radial-gradient(farthest-side at 73% 21%, blackAlpha.400, gray.800)"
+        />
+      </Box>
+
+      <Box ref={contentContainerRef} position="absolute" zIndex={1} w="full">
+        {[...Array(50)].map((_, i) => (
+          <Text key={i}>Hello</Text>
+        ))}
+      </Box>
     </Box>
   );
 };
