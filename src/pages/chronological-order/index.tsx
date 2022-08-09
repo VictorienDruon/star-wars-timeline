@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import type { NextPage } from "next";
-import { Box, Image, Text } from "@chakra-ui/react";
+import { Box, Button, HStack, Image, Stack, Text } from "@chakra-ui/react";
+import { Section } from "src/components/Section";
 
 const ChronologicalOrder: NextPage = () => {
   const contentContainerRef = React.useRef<HTMLDivElement>(null);
@@ -40,9 +41,22 @@ const ChronologicalOrder: NextPage = () => {
       </Box>
 
       <Box ref={contentContainerRef} position="absolute" zIndex={1} w="full">
-        {[...Array(50)].map((_, i) => (
-          <Text key={i}>Hello</Text>
-        ))}
+        <Section>
+          <Stack maxW="4xl" spacing="10">
+            <Image w="35vw" maxW="341px" minW="100px" src="/phantom-menace-title.png" alt="Todo" />
+            <HStack spacing="4">
+              <Button size="lg">Lecture</Button>
+              <Button size="lg" variant="outline">
+                Bande-annonce
+              </Button>
+            </HStack>
+            <Text>
+              {`Luke Skywalker joins forces with a Jedi Knight, a cocky pilot, a Wookiee and two droids to save the galaxy
+            from the Empire's world-destroying battle station, while also attempting to rescue Princess Leia from the
+            mysterious Darth Vader.`}
+            </Text>
+          </Stack>
+        </Section>
       </Box>
     </Box>
   );

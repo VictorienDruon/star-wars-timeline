@@ -5,6 +5,9 @@ const theme = extendTheme({
     useSystemColorMode: false,
     initialColorMode: "dark",
   },
+  components: {
+    Text: { baseStyle: { fontSize: "xl" } },
+  },
 });
 
 export default theme;
