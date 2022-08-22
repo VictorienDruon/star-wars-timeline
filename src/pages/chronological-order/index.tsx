@@ -1,9 +1,9 @@
 import type { NextPage } from "next";
-import { chronologicalOrder } from "utils/movieList";
 import { Template } from "src/components/Template";
+import { movieList } from "utils/movieList";
 
 const ChronologicalOrder: NextPage = () => {
-  return <Template movieList={chronologicalOrder} />;
+  return <Template movieList={movieList} />;
 };
 
 export default ChronologicalOrder;

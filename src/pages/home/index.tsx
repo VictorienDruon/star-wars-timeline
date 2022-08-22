@@ -12,7 +12,7 @@ const Home: NextPage = () => {
           <Heading>Home</Heading>
           <NextLink href="/chronological-order">Chrnological Order</NextLink>
           <NextLink href="/release-order">Release Order</NextLink>
-          <NextLink href="/machete-order">Release Order</NextLink>
+          <NextLink href="/machete-order">Machete Order</NextLink>
         </Stack>
       </Section>
     </Box>
