@@ -11,6 +11,8 @@ const Home: NextPage = () => {
         <Stack spacing="16">
           <Heading>Home</Heading>
           <NextLink href="/chronological-order">Chrnological Order</NextLink>
+          <NextLink href="/release-order">Release Order</NextLink>
+          <NextLink href="/machete-order">Release Order</NextLink>
         </Stack>
       </Section>
     </Box>

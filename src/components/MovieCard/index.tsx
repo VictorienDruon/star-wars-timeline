@@ -3,7 +3,7 @@ import { Movie } from "utils/movieList";
 import { Section } from "../Section";
 
 export const MovieCard = ({ movie }: { movie: Movie }) => {
-  const { poster, synopis } = movie;
+  const { poster, id } = movie;
 
   return (
     <Box position="relative" minHeight="100vh">
@@ -17,7 +17,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
                 Bande-annonce
               </Button>
             </HStack>
-            <Text>{synopis}</Text>
+            <Text>{}</Text>
           </Stack>
         </Section>
       </Box>
