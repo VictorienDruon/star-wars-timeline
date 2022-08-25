@@ -8,32 +8,26 @@ interface TemplateProps {
 }
 
 export const Template = ({ movieList }: TemplateProps) => {
-  const [opacity, setOpacity] = React.useState(1);
   const [foreground, setForegound] = React.useState(movieList[0].wallpaper);
   const [background, setBackgound] = React.useState(movieList[1].wallpaper);
+  const [opacity, setOpacity] = React.useState(1);
 
-  const handleBackground = () => {
-    const currentLayer = Math.trunc(window.scrollY / window.innerHeight);
-    setForegound(movieList[currentLayer].wallpaper);
-    if (currentLayer < movieList.length) {
-      setBackgound(movieList[currentLayer + 1].wallpaper);
+  const handleScroll = () => {
+    const currentLayer = window.scrollY / window.innerHeight;
+
+    // Handle Backrgound
+    const currentLayerTruncated = Math.trunc(currentLayer);
+    setForegound(movieList[currentLayerTruncated].wallpaper);
+    if (currentLayerTruncated + 1 < movieList.length) {
+      setBackgound(movieList[currentLayerTruncated + 1].wallpaper);
     }
 
-    console.log(window.scrollY, window.innerHeight, currentLayer);
-  };
-
-  const handleOpacity = () => {
+    // Handle Opacity
     if (window.scrollY > 0) {
-      const currentLayer = window.scrollY / window.innerHeight;
       const rawOpacity = currentLayer - Math.floor(currentLayer);
       const opacity = 1 - rawOpacity;
       setOpacity(opacity);
     }
-  };
-
-  const handleScroll = () => {
-    handleBackground();
-    handleOpacity();
   };
 
   useEffect(() => {
