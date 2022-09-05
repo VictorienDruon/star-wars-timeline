@@ -14,7 +14,7 @@ export interface Movie {
 
 export const movieList : Movie[] = [
     {
-        title: `Star Wars: Épisode I - La menace fantôme`,
+        title: `starwars1`,
         age: 12,
         release: "1999",
         duration: "2 h 16 min",
@@ -25,7 +25,7 @@ export const movieList : Movie[] = [
         trailerId: "d7ce7e85-deb8-4fa9-8693-5206c144e317"
     },
     {
-        title: `Star Wars : Épisode II - L'Attaque des clones`,
+        title: `starwars2`,
         age: 6,
         release: "2002",
         duration: "2 h 22 min",
@@ -37,7 +37,7 @@ export const movieList : Movie[] = [
         trailerId: "5ce189be-5844-47bb-8adc-d2284c6ea00d"
     },
     {
-        title: `Star Wars: The Clone Wars`,
+        title: `clone-wars`,
         age: 6,
         release: "2008 - 2020",
         duration: "7 saisons",
@@ -48,7 +48,7 @@ export const movieList : Movie[] = [
         trailerId: "b92e423a-559b-4862-8ae6-789c82f14dec"
     },
     {
-        title: `Star Wars : Épisode III - La Revanche des Sith`,
+        title: `starwars3`,
         age: 12,
         release: "2005",
         duration: "2 h 20 min",
@@ -60,7 +60,7 @@ export const movieList : Movie[] = [
         trailerId: "ec8e3e77-bb10-4fde-a9e9-5acc9fd083d9"
     },
     {
-        title: `Star Wars: The Bad Batch`,
+        title: `bad-batch`,
         age: 6,
         release: "2021 - 2022",
         duration: "2 saisons",
@@ -71,7 +71,7 @@ export const movieList : Movie[] = [
         trailerId: "cd75794b-6a75-4829-bb1a-e2b99625d8f8"
     },
     {
-        title: `Solo: A Star Wars Story`,
+        title: `solo`,
         age: 12,
         release: "2018",
         duration: "2 h 15 min",
@@ -82,7 +82,7 @@ export const movieList : Movie[] = [
         trailerId: "6f92ca39-98e5-4ed2-b76b-cec00eb9075d"
     },
     {
-        title: `Obi-Wan Kenobi`,
+        title: `obi-wan-kenobi`,
         age: 12,
         release: "2022",
         duration: "1 saison",
@@ -93,7 +93,7 @@ export const movieList : Movie[] = [
         trailerId: "4a2924c5-68e7-44b7-9d46-a89bc37f8276"
     },
     {
-        title: `Star Wars Rebels`,
+        title: `rebels`,
         age: 6,
         release: "2014 - 2017",
         duration: "4 saisons",
@@ -104,7 +104,7 @@ export const movieList : Movie[] = [
         trailerId: ""
     },
     {
-        title: `Rogue One: A Star Wars Story`,
+        title: `rogue-one`,
         age: 12,
         release: "2016",
         duration: "2 h 14 min",
@@ -115,7 +115,7 @@ export const movieList : Movie[] = [
         trailerId: "e6a67e31-6873-4cb2-812c-ff1ca241d6f8"
     },
     {
-        title: `Star Wars : Épisode IV - Un Nouvel Espoir`,
+        title: `starwars4`,
         age: 12,
         release: "1977",
         duration: "2 h 04 min",
@@ -127,7 +127,7 @@ export const movieList : Movie[] = [
         trailerId: "74c90a02-46d6-4d64-93fc-c2cc5453e1cc"
     },
     {
-        title: `Star Wars : Épisode V - L'Empire Contre-Attaque`,
+        title: `starwars5`,
         age: 12,
         release: "1980",
         duration: "2 h 07 min",
@@ -139,7 +139,7 @@ export const movieList : Movie[] = [
         trailerId: "df5297a4-301d-4e8c-9fab-caffd3a4b49a"
     },
     {
-        title: `Star Wars : Épisode VI - Le Retour du Jedi`,
+        title: `starwars6`,
         age: 12,
         release: "1983",
         duration: "2 h 14 min",
@@ -151,7 +151,7 @@ export const movieList : Movie[] = [
         trailerId: "bf76dec3-264c-4643-b926-acd2930c9338"
     },
     {
-        title: `The Mandalorian`,
+        title: `mandalorian`,
         age: 14,
         release: "2019 - 2020",
         duration: "2 saisons",
@@ -162,7 +162,7 @@ export const movieList : Movie[] = [
         trailerId: "73b1f5c3-cadd-496b-9c0b-89a3cddbedf7"
     },
     {
-        title: `Le Livre de Boba Fett`,
+        title: `boba-fett`,
         age: 12,
         release: "2021",
         duration: "1 saison",
@@ -173,7 +173,7 @@ export const movieList : Movie[] = [
         trailerId: "1c081e93-d0dc-4f9e-810b-4f996011f9c9"
     },
     {
-        title: `Star Wars Resistance`,
+        title: `resistance`,
         age: 6,
         release: "2018 - 2019",
         duration: "2 saisons",
@@ -184,7 +184,7 @@ export const movieList : Movie[] = [
         trailerId: ""
     },
     {
-        title: `Star Wars : Épisode VII - Le Réveil de la Force`,
+        title: `starwars7`,
         age: 12,
         release: "2015",
         duration: "2 h 18 min",
@@ -196,7 +196,7 @@ export const movieList : Movie[] = [
         trailerId: "b6ba9fb4-85ab-461f-ac2a-e45406d22095"
     },
     {
-        title: `Star Wars : Épisode VIII - Les Derniers Jedi`,
+        title: `starwars8`,
         age: 12,
         release: "2017",
         duration: "2 h 32 min",
@@ -208,7 +208,7 @@ export const movieList : Movie[] = [
         trailerId: "46afca36-6c49-463c-8d42-163a9d4d2819"
     },
     {
-        title: `Star Wars : Épisode IX - L'Ascension de Skywalker`,
+        title: `starwars9`,
         age: 12,
         release: "2019",
         duration: "2 h 21 min",

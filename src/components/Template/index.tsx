@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Image } from "@chakra-ui/react";
+import { Box, Button, Link } from "@chakra-ui/react";
 import { Movie } from "utils/movieList";
 import { MovieCard } from "src/components/MovieCard";
 
@@ -30,9 +30,20 @@ export const Template = ({ movieList }: TemplateProps) => {
     }
   };
 
+  const navbar = () => {
+    alert("test");
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const li = document.querySelector("li");
+    if (li) {
+      li.addEventListener("mouseover", navbar);
+    }
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mouseover", navbar);
+    };
   });
 
   return (
@@ -59,12 +70,22 @@ export const Template = ({ movieList }: TemplateProps) => {
         bgRepeat="no-repeat"
         bgSize="cover"
       />
-      {/* Movie layer */}
-      <Box>
-        {movieList.map((movie) => (
-          <MovieCard key={movie.title} movie={movie} />
-        ))}
+      {/* Navbar */}
+      <Box zIndex={2} position="fixed" w="24px">
+        <ul>
+          {movieList.map((movie) => (
+            <li key={movie.title}>
+              <Box key={movie.title} w="1px" h="24px" bg="white" mb="6px" ml="13px" opacity="0.3">
+                <Link href={`#${movie.title}`} />
+              </Box>
+            </li>
+          ))}
+        </ul>
       </Box>
+      {/* Movie layer */}
+      {movieList.map((movie) => (
+        <MovieCard key={movie.title} movie={movie} />
+      ))}
     </>
   );
 };

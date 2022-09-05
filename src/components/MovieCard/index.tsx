@@ -7,7 +7,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
   const { title, poster, synopis, playerId, trailerId, duration, age, release } = movie;
 
   return (
-    <Box position="relative" minHeight="100vh">
+    <Box position="relative" minHeight="100vh" id={movie.title}>
       <Box position="absolute" zIndex={2} w="full">
         <Section>
           <Stack maxW="4xl" spacing="10">
