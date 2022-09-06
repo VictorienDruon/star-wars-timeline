@@ -4,10 +4,10 @@ import { Movie } from "utils/movieList";
 import { Section } from "../Section";
 
 export const MovieCard = ({ movie }: { movie: Movie }) => {
-  const { title, poster, synopis, playerId, trailerId, duration, age, release } = movie;
+  const { title, id, age, release, duration, synopsis, poster, playerId, trailerId } = movie;
 
   return (
-    <Box position="relative" minHeight="100vh" id={movie.title}>
+    <Box position="relative" minHeight="100vh" id={id}>
       <Box position="absolute" zIndex={2} w="full">
         <Section>
           <Stack maxW="4xl" spacing="10">
@@ -31,7 +31,7 @@ export const MovieCard = ({ movie }: { movie: Movie }) => {
                 <Link href={`https://www.disneyplus.com/video/${trailerId}`}>Bande-annonce</Link>
               </Button>
             </HStack>
-            <Text>{synopis}</Text>
+            <Text>{synopsis}</Text>
           </Stack>
         </Section>
       </Box>

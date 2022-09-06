@@ -36,9 +36,11 @@ export const Template = ({ movieList }: TemplateProps) => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    const li = document.querySelector("li");
+    const li = document.querySelectorAll("li");
     if (li) {
-      li.addEventListener("mouseover", navbar);
+      for (let i = 0; i < li.length; i++) {
+        li[i].addEventListener("mouseover", navbar);
+      }
     }
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -74,9 +76,9 @@ export const Template = ({ movieList }: TemplateProps) => {
       <Box zIndex={2} position="fixed" w="24px">
         <ul>
           {movieList.map((movie) => (
-            <li key={movie.title}>
-              <Box key={movie.title} w="1px" h="24px" bg="white" mb="6px" ml="13px" opacity="0.3">
-                <Link href={`#${movie.title}`} />
+            <li key={movie.id}>
+              <Box key={movie.id} w="1px" h="24px" bg="white" mb="6px" ml="13px" opacity="0.3">
+                <Link href={`#${movie.id}`} />
               </Box>
             </li>
           ))}
@@ -84,7 +86,7 @@ export const Template = ({ movieList }: TemplateProps) => {
       </Box>
       {/* Movie layer */}
       {movieList.map((movie) => (
-        <MovieCard key={movie.title} movie={movie} />
+        <MovieCard key={movie.id} movie={movie} />
       ))}
     </>
   );
