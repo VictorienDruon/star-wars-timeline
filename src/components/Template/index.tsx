@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Box, Button, Link } from "@chakra-ui/react";
+import { Box, Text, Link, Stack, Center } from "@chakra-ui/react";
 import { Movie } from "utils/movieList";
 import { MovieCard } from "src/components/MovieCard";
 
@@ -30,21 +30,10 @@ export const Template = ({ movieList }: TemplateProps) => {
     }
   };
 
-  const navbar = () => {
-    alert("test");
-  };
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
-    const li = document.querySelectorAll("li");
-    if (li) {
-      for (let i = 0; i < li.length; i++) {
-        li[i].addEventListener("mouseover", navbar);
-      }
-    }
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("mouseover", navbar);
     };
   });
 
@@ -72,22 +61,46 @@ export const Template = ({ movieList }: TemplateProps) => {
         bgRepeat="no-repeat"
         bgSize="cover"
       />
+
       {/* Navbar */}
-      <Box zIndex={2} position="fixed" w="24px">
-        <ul>
+      <Box position="fixed" zIndex={2} top={`${(window.innerHeight - movieList.length * (30 + 6)) / 2}px`}>
+        <Stack spacing="6px">
           {movieList.map((movie) => (
-            <li key={movie.id}>
-              <Box key={movie.id} w="1px" h="24px" bg="white" mb="6px" ml="13px" opacity="0.3">
-                <Link href={`#${movie.id}`} />
-              </Box>
-            </li>
+            <Center key={movie.id} h="30">
+              <Text
+                key={movie.id}
+                className={movie.id}
+                position="fixed"
+                right="24px"
+                fontSize={12}
+                fontWeight="bold"
+                visibility="hidden"
+              >
+                {movie.title.toUpperCase()}
+              </Text>
+              <Link position="fixed" right="0px" w="24px" href={`#${movie.id}`}>
+                <Box
+                  key={movie.id}
+                  className={movie.id}
+                  ml="8px"
+                  w="2px"
+                  h="30px"
+                  bg="white"
+                  opacity="0.5"
+                  borderRadius="5"
+                />
+              </Link>
+            </Center>
           ))}
-        </ul>
+        </Stack>
       </Box>
+
       {/* Movie layer */}
-      {movieList.map((movie) => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
+      <Box zIndex={1}>
+        {movieList.map((movie) => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </Box>
     </>
   );
 };

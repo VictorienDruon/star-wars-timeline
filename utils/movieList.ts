@@ -193,7 +193,7 @@ export const movieList : Movie[] = [
         age: 6,
         release: "2018 - 2019",
         duration: "2 saisons",
-        synopsis: `Kazuda Xiono, jeune pilote de la Résistance, est taché d'une mission top secret afin de d'enquêter le First Order (La Première Ordre), menace croissante dans la galaxie.`,
+        synopsis: `Kazuda Xiono, jeune pilote de la Résistance, est taché d'une mission top secret afin d'enquêter le Premier Ordre, menace croissante dans la galaxie.`,
         poster: '/star-wars-resistance-title.png',
         wallpaper: '/star-wars-resistance.jpg',
         playerId: "61b96dcb-91c7-4014-8392-901098ae5697",
