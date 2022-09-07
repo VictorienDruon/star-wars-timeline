@@ -63,7 +63,7 @@ export const Template = ({ movieList }: TemplateProps) => {
       />
 
       {/* Navbar */}
-      <Box position="fixed" zIndex={2} top={`${(window.innerHeight - movieList.length * (30 + 6)) / 2}px`}>
+      <Box position="fixed" zIndex={2}>
         <Stack spacing="6px">
           {movieList.map((movie) => (
             <Center key={movie.id} h="30">
