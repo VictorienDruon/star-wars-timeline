@@ -30,10 +30,50 @@ export const Template = ({ movieList }: TemplateProps) => {
     }
   };
 
+  const overNavbar = (i: number) => {
+    const title = document.getElementById(`${movieList[i].id}-title`);
+    if (title) {
+      title.innerHTML = movieList[i].title.toUpperCase();
+    }
+  };
+
+  const leaveNavbar = (i: number) => {
+    const title = document.getElementById(`${movieList[i].id}-title`);
+    if (title) {
+      title.innerHTML = "";
+    }
+  };
+
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
+    const elements = document.getElementsByClassName("navbarElement");
+    if (elements) {
+      for (let i = 0; i < elements.length; i++) {
+        elements[i].addEventListener(
+          "mouseover",
+          function () {
+            overNavbar(i);
+          },
+          false,
+        );
+
+        elements[i].addEventListener(
+          "mouseleave",
+          function () {
+            leaveNavbar(i);
+          },
+          false,
+        );
+      }
+    }
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mouseover", function () {
+        overNavbar;
+      });
+      window.removeEventListener("mouseleave", function () {
+        leaveNavbar;
+      });
     };
   });
 
@@ -63,32 +103,15 @@ export const Template = ({ movieList }: TemplateProps) => {
       />
 
       {/* Navbar */}
-      <Box position="fixed" zIndex={2}>
+      <Box position="fixed" zIndex={3}>
         <Stack spacing="6px">
           {movieList.map((movie) => (
-            <Center key={movie.id} h="30">
-              <Text
-                key={movie.id}
-                className={movie.id}
-                position="fixed"
-                right="24px"
-                fontSize={12}
-                fontWeight="bold"
-                visibility="hidden"
-              >
-                {movie.title.toUpperCase()}
-              </Text>
+            <Center key={movie.id} h="30" className="navbarElement">
+              <Box key={movie.id} position="fixed" right="24px" fontSize={12} fontWeight="bold">
+                <p id={`${movie.id}-title`}></p>
+              </Box>
               <Link position="fixed" right="0px" w="24px" href={`#${movie.id}`}>
-                <Box
-                  key={movie.id}
-                  className={movie.id}
-                  ml="8px"
-                  w="2px"
-                  h="30px"
-                  bg="white"
-                  opacity="0.5"
-                  borderRadius="5"
-                />
+                <Box key={movie.id} ml="8px" w="2px" h="30px" bg="white" opacity="0.5" borderRadius="5" />
               </Link>
             </Center>
           ))}
