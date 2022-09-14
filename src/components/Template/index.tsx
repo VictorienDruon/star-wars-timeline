@@ -35,12 +35,22 @@ export const Template = ({ movieList }: TemplateProps) => {
     if (title) {
       title.innerHTML = movieList[i].title.toUpperCase();
     }
+    const box = document.getElementById(`${movieList[i].id}-box`);
+    if (box) {
+      box.style.width = "4px";
+      box.style.opacity = "1";
+    }
   };
 
   const leaveNavbar = (i: number) => {
     const title = document.getElementById(`${movieList[i].id}-title`);
     if (title) {
       title.innerHTML = "";
+    }
+    const box = document.getElementById(`${movieList[i].id}-box`);
+    if (box) {
+      box.style.width = "2px";
+      box.style.opacity = "0.5";
     }
   };
 
@@ -111,7 +121,16 @@ export const Template = ({ movieList }: TemplateProps) => {
                 <p id={`${movie.id}-title`}></p>
               </Box>
               <Link position="fixed" right="0px" w="24px" href={`#${movie.id}`}>
-                <Box key={movie.id} ml="8px" w="2px" h="30px" bg="white" opacity="0.5" borderRadius="5" />
+                <Box
+                  id={`${movie.id}-box`}
+                  key={movie.id}
+                  ml="8px"
+                  w="2px"
+                  h="30px"
+                  bg="white"
+                  opacity="0.5"
+                  borderRadius="5"
+                />
               </Link>
             </Center>
           ))}
