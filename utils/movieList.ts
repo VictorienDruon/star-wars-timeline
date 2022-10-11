@@ -237,5 +237,17 @@ export const movieList : Movie[] = [
         macheteOrder: 8,
         playerId: "79938276-b6d2-41e2-938d-5dc5decd4d53",
         trailerId: "35a8fdc4-3938-4a85-b676-8907e58ac909"
+    },
+    {
+        title: `Star Wars : Andor`,
+        id: `andor`,
+        age: 12,
+        release: "2022",
+        duration: "1 saison",
+        synopsis: `Prequel de «Rogue One», suivant les aventures de Cassian Andor pendant les années formatrices de la rébellion.`,
+        poster: 'andor-title.png',
+        wallpaper: 'andor.jpg',
+        playerId: "81361203-cc00-49dd-b60f-8b9203d165d3",
+        trailerId: "7f40ea33-8a2e-408f-aefa-145256fc4221"
     }
 ]
