@@ -10,4 +10,3 @@ yarn dev
 ```
 
 And then go to localhost:3000.
-# Learn-Piano
